@@ -1,0 +1,1 @@
+package org.keycloak.forge.addon;
