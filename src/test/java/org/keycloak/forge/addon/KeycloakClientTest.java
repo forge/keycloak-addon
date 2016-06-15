@@ -2,6 +2,7 @@ package org.keycloak.forge.addon;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
@@ -15,6 +16,7 @@ import org.keycloak.representations.idm.ClientRepresentation;
 public class KeycloakClientTest {
 
     @Test
+    @Ignore
     public void test() {
         String serverUrl = "http://localhost:9000/auth";
         String realm = "master";

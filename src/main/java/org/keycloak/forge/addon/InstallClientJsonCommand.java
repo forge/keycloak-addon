@@ -1,6 +1,5 @@
 package org.keycloak.forge.addon;
 
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,9 +8,11 @@ import org.jboss.forge.addon.facets.constraints.FacetConstraint;
 import org.jboss.forge.addon.projects.ProjectFactory;
 import org.jboss.forge.addon.projects.facets.WebResourcesFacet;
 import org.jboss.forge.addon.projects.ui.AbstractProjectCommand;
+import org.jboss.forge.addon.resource.FileResource;
 import org.jboss.forge.addon.ui.context.UIBuilder;
 import org.jboss.forge.addon.ui.context.UIContext;
 import org.jboss.forge.addon.ui.context.UIExecutionContext;
+import org.jboss.forge.addon.ui.hints.InputType;
 import org.jboss.forge.addon.ui.input.UIInput;
 import org.jboss.forge.addon.ui.metadata.UICommandMetadata;
 import org.jboss.forge.addon.ui.metadata.WithAttributes;
@@ -52,7 +53,7 @@ public class InstallClientJsonCommand extends AbstractProjectCommand {
     private UIInput<String> user;
 
     @Inject
-    @WithAttributes(label = "Password", description = "Password for the authenticated user", required = true)
+    @WithAttributes(label = "Password", type = InputType.SECRET, description = "Password for the authenticated user", required = true)
     private UIInput<String> password;
 
     @Inject
@@ -84,7 +85,9 @@ public class InstallClientJsonCommand extends AbstractProjectCommand {
             ClientResource clientResource = clientsResource.get(clientRepresentation.getId());
             String jsonContents = clientResource.getInstallationProvider(PROVIDER_ID);
             WebResourcesFacet facet = getSelectedProject(context).getFacet(WebResourcesFacet.class);
-            facet.getWebResource(KEYCLOAK_JSON_PATH).setContents(jsonContents);
+            FileResource<?> resource = facet.getWebResource(KEYCLOAK_JSON_PATH);
+            resource.setContents(jsonContents);
+            context.getUIContext().setSelection(resource);
         } finally {
             kc.close();
         }
