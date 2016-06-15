@@ -27,7 +27,7 @@
     <dependency>
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-admin-client</artifactId>
-      <version>1.9.4.Final</version>
+      <version>1.9.8.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
