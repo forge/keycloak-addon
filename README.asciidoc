@@ -41,3 +41,12 @@ This command will connect to your Keycloak instance and write the necessary WEB-
 keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
 ----
 +
+
+[TIP]
+If you want to configure web.xml, run the following commands, replacing the values as needed:
++
+[source,shell]
+----
+security-add-login-config --auth-method KEYCLOAK --security-realm master
+security-add-constraint --web-resource-name Customer --url-patterns /rest/customers --security-roles user
+----
