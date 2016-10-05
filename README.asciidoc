@@ -38,11 +38,9 @@ This command will connect to your Keycloak instance and write the necessary WEB-
 IMPORTANT: You need to make sure that the Direct Access Grants Enabled option is enabled for this client
 
 [source,shell]
-+
 ----
 keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
 ----
-+
 
 [TIP]
 If you want to configure web.xml, run the following commands, replacing the values as needed:
