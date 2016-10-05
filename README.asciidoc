@@ -35,10 +35,12 @@ addon-install-from-git --url https://github.com/forge/keycloak-addon.git
 == Features
 Install Client Json::
 This command will connect to your Keycloak instance and write the necessary WEB-INF/keycloak.json to enable keycloak.
-+
+IMPORTANT: You need to make sure that the Direct Access Grants Enabled option is enabled for this client
+
 [source,shell]
++
 ----
-keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
+keycloak-install-client-json --server-url http://localhost:9000/auth --realm master --client-id security-admin-console --user admin --password admin
 ----
 +
 
