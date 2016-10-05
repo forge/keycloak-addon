@@ -44,7 +44,7 @@ keycloak-install-client-json --server-url http://localhost:9000/auth --realm mas
 
 [TIP]
 If you want to configure web.xml, run the following commands, replacing the values as needed:
-+
+
 [source,shell]
 ----
 security-add-login-config --auth-method KEYCLOAK --security-realm master
